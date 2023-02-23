@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Download Multiple Images</title>
+</head>
+
+<body>
+    <h1>Download Multiple Images</h1>
+    <p>Click the button below to download all 10 images:</p>
+    <button onclick="downloadAll()">Download All</button>
+
+    <script>
+        function downloadAll() {
+            const urls = [
+                "https://i.imgur.com/GYAtI2B.jpg",
+                "https://i.imgur.com/YruVuZG.jpg",
+               
+            ];
+
+            let i = 0;
+            const downloadNext = () => {
+                if (i < urls.length) {
+                    const url = urls[i];
+                    fetch(url)
+                        .then((response) => response.blob())
+                        .then((blob) => {
+                            const link = document.createElement("a");
+                            link.href = window.URL.createObjectURL(blob);
+                            link.download = url.substring(url.lastIndexOf("/") + 1);
+                            link.style.display = "none";
+                            document.body.appendChild(link);
+                            link.click();
+                            document.body.removeChild(link);
+                            i++;
+                            downloadNext();
+                        });
+                }
+            };
+
+            downloadNext();
+        }
+    </script>
+</body>
+
+</html>
