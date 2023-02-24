@@ -5,10 +5,13 @@
   <title>Download Random Images</title>
 </head>
 
-<body>
-  <h1>Download Random Images</h1>
-  <p>Click the button below to download 3 random images:</p>
-  <button onclick="downloadRandom()">Download Random Images</button>
+<body style="min-height: 100vh; max-width: 100%; background-color: black; color: pink;">
+  <div style="min-height: 100vh; display: flex; justify-content: center; align-items: center; flex-direction: column;">
+    <h1 style="font-family: 'Courier New', Courier, monospace; text-decoration: underline;">Download Images</h1>
+    <p style="font-family: 'Courier New', Courier, monospace;">Click the button below to download 10 images</p>
+    <button style="text-decoration: none; background-color: transparent; color: white; border-color: white; cursor: pointer; border-style: solid; padding: 1rem; border-radius: 50px;" onclick="downloadRandom()">Download Random Images</button>
+    <p style="font-family: 'Courier New', Courier, monospace;">^Click the button above to download 10 images^</p>
+  </div>
 
   <script>
     const dataset = [
