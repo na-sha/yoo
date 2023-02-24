@@ -2,45 +2,157 @@
 <html>
 
 <head>
-    <title>Download Multiple Images</title>
+  <title>Download Random Images</title>
 </head>
 
 <body>
-    <h1>Download Multiple Images</h1>
-    <p>Click the button below to download all 10 images:</p>
-    <button onclick="downloadAll()">Download All</button>
+  <h1>Download Random Images</h1>
+  <p>Click the button below to download 3 random images:</p>
+  <button onclick="downloadRandom()">Download Random Images</button>
 
-    <script>
-        function downloadAll() {
-            const urls = [
-                "https://imgur.com/GYAtI2B.jpg",
-                "https://imgur.com/YruVuZG.jpg",
-               
-            ];
+  <script>
+    const dataset = [
+      "https://i.imgur.com/YDc8DUh.jpg",
+      "https://i.imgur.com/YOkGx4y.jpg",
+      "https://i.imgur.com/qNIxPTF.jpg",
+      "https://i.imgur.com/66VDKHs.jpg",
+      "https://i.imgur.com/PwIQklH.jpg",
+      "https://i.imgur.com/0nXfzFm.jpg",
+      "https://i.imgur.com/bxPgNHd.jpg",
+      "https://i.imgur.com/ns8BoXw.jpg",
+      "https://i.imgur.com/BFLaTf9.jpg",
+      "https://i.imgur.com/pjpwu7t.jpg",
+      "https://i.imgur.com/gD0EI2f.jpg",
+      "https://i.imgur.com/F8D0xlR.jpg",
+      "https://i.imgur.com/LnLmyQm.jpg",
+      "https://i.imgur.com/UCqvCOv.jpg",
+      "https://i.imgur.com/0jNz1MM.jpg",
+      "https://i.imgur.com/csRRTJL.jpg",
+      "https://i.imgur.com/jJ4tzW0.jpg",
+      "https://i.imgur.com/KiENUIE.jpg",
+      "https://i.imgur.com/scLu93D.jpg",
+      "https://i.imgur.com/P77TxPf.jpg",
+      "https://i.imgur.com/roSoelp.jpg",
+      "https://i.imgur.com/4w7pMa2.jpg",
+      "https://i.imgur.com/HCKdGSB.jpg",
+      "https://i.imgur.com/aw1DVtV.jpg",
+      "https://i.imgur.com/ucBQK2j.jpg",
+      "https://i.imgur.com/uBz0OyK.jpg",
+      "https://i.imgur.com/qjKbNtx.jpg",
+      "https://i.imgur.com/L3BWgGA.jpg",
+      "https://i.imgur.com/AFEZTRC.jpg",
+      "https://i.imgur.com/MMn9EhE.jpg",
+      "https://i.imgur.com/a5apfi1.jpg",
+      "https://i.imgur.com/GFJvFL7.jpg",
+      "https://i.imgur.com/yDrPTLG.jpg",
+      "https://i.imgur.com/04Qk79e.jpg",
+      "https://i.imgur.com/uvIayny.jpg",
+      "https://i.imgur.com/z2gg3Ah.jpg",
+      "https://i.imgur.com/Erw3sAy.jpg",
+      "https://i.imgur.com/Zp40KCf.jpg",
+      "https://i.imgur.com/uz2rdBn.jpg",
+      "https://i.imgur.com/GJ1pRrt.jpg",
+      "https://i.imgur.com/XiTESl9.jpg",
+      "https://i.imgur.com/hUgLYVk.jpg",
+      "https://i.imgur.com/XMFfnmE.jpg",
+      "https://i.imgur.com/CJLS0ln.jpg",
+      "https://i.imgur.com/74Sg8q4.jpg",
+      "https://i.imgur.com/YrNjHLb.jpg",
+      "https://i.imgur.com/iPYdo2L.jpg",
+      "https://i.imgur.com/YpHE2JX.jpg",
+      "https://i.imgur.com/dmudNy7.jpg",
+      "https://i.imgur.com/DC5tsif.jpg",
+      "https://i.imgur.com/voYHgSu.jpg",
+      "https://i.imgur.com/NWiPvTG.jpg",
+      "https://i.imgur.com/PntgqgO.jpg",
+      "https://i.imgur.com/oMXo4o4.jpg",
+      "https://i.imgur.com/VeSkYMb.jpg",
+      "https://i.imgur.com/oWmJtyA.jpg",
+      "https://i.imgur.com/i4xoDK0.jpg",
+      "https://i.imgur.com/s7gL6KA.jpg",
+      "https://i.imgur.com/UxtZkuN.jpg",
+      "https://i.imgur.com/gzfJEKI.jpg",
+      "https://i.imgur.com/kO6qVBF.jpg",
+      "https://i.imgur.com/Vv5FYrm.jpg",
+      "https://i.imgur.com/3xQOZk5.jpg",
+      "https://i.imgur.com/zU1vkby.jpg",
+      "https://i.imgur.com/cl42vaj.jpg",
+      "https://i.imgur.com/6k6yu9v.jpg",
+      "https://i.imgur.com/aZ0Emh2.jpg",
+      "https://i.imgur.com/v9G37rl.jpg",
+      "https://i.imgur.com/fi6hS1Z.jpg",
+      "https://i.imgur.com/vV8g8gr.jpg",
+      "https://i.imgur.com/b71Wdiv.jpg",
+      "https://i.imgur.com/E12EJp9.jpg",
+      "https://i.imgur.com/U3ESTnv.jpg",
+      "https://i.imgur.com/ePqTzjB.jpg",
+      "https://i.imgur.com/OjKhAPV.jpg",
+      "https://i.imgur.com/9NuCHw9.jpg",
+      "https://i.imgur.com/mejEdzu.jpg",
+      "https://i.imgur.com/aUsJwwl.jpg",
+      "https://i.imgur.com/aJ9NLrS.jpg",
+      "https://i.imgur.com/eOv6Aj3.jpg",
+      "https://i.imgur.com/UkCrBb9.jpg",
+      "https://i.imgur.com/upu6bv6.jpg",
+      "https://i.imgur.com/if6F6AI.jpg",
+      "https://i.imgur.com/WOc8Ziy.jpg",
+      "https://i.imgur.com/ncQdtpe.jpg",
+      "https://i.imgur.com/K8nMCuY.jpg",
+      "https://i.imgur.com/01il5xk.jpg",
+      "https://i.imgur.com/sMj6qve.jpg",
+      "https://i.imgur.com/rlnFhaA.jpg",
+      "https://i.imgur.com/l90lAuo.jpg",
+      "https://i.imgur.com/kGoc07l.jpg",
+      "https://i.imgur.com/xIbR6Y2.jpg",
+      "https://i.imgur.com/Pjo0mDH.jpg",
+      "https://i.imgur.com/wMfsti1.jpg",
+      "https://i.imgur.com/iG91CBM.jpg",
+      "https://i.imgur.com/RwzAyBw.jpg",
+      "https://i.imgur.com/teRnbth.jpg",
+      "https://i.imgur.com/LfZr7rM.jpg",
+      "https://i.imgur.com/Hl7hagq.jpg",
+      "https://i.imgur.com/sqjr9oI.jpg",
+      "https://i.imgur.com/xHZIW2m.jpg",
+      "https://i.imgur.com/X0QBHE1.jpg"
+    ];
 
-            let i = 0;
-            const downloadNext = () => {
-                if (i < urls.length) {
-                    const url = urls[i];
-                    fetch(url)
-                        .then((response) => response.blob())
-                        .then((blob) => {
-                            const link = document.createElement("a");
-                            link.href = window.URL.createObjectURL(blob);
-                            link.download = url.substring(url.lastIndexOf("/") + 1);
-                            link.style.display = "none";
-                            document.body.appendChild(link);
-                            link.click();
-                            document.body.removeChild(link);
-                            i++;
-                            downloadNext();
-                        });
-                }
-            };
-
-            downloadNext();
+    function getRandomImages(numImages) {
+      const randomIndices = [];
+      while (randomIndices.length < numImages) {
+        const randomIndex = Math.floor(Math.random() * dataset.length);
+        if (!randomIndices.includes(randomIndex)) {
+          randomIndices.push(randomIndex);
         }
-    </script>
+      }
+      return randomIndices.map((i) => dataset[i]);
+    }
+
+    function downloadRandom() {
+      const urls = getRandomImages(10);
+
+      let i = 0;
+      const downloadNext = () => {
+        if (i < urls.length) {
+          const url = urls[i];
+          fetch(url)
+            .then((response) => response.blob())
+            .then((blob) => {
+              const link = document.createElement("a");
+              link.href = window.URL.createObjectURL(blob);
+              link.download = url.substring(url.lastIndexOf("/") + 1);
+              link.style.display = "none";
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
+              i++;
+              downloadNext();
+            });
+        }
+      };
+
+      downloadNext();
+    }
+  </script>
 </body>
 
 </html>
